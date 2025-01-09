@@ -7,15 +7,17 @@ export interface Project {
   longDescription: string;
   technologies: string[];
   highlightedTechnologies?: string[]; // Adicionando atributo para tecnologias em destaque
+  languages: "en-US" | "pt-BR"; // Alterado para ser uma única string
+  imgSrc: string; // Novo atributo para imagem do projeto
 }
 
 export const mockProjects: Project[] = [
   {
     id: 1,
-    name: "Project Alpha",
-    shortDescription: "A simple project to demonstrate features.",
+    name: "BarbaBrutal",
+    shortDescription: "Agendamento de serviços",
     longDescription:
-      "Project Alpha is designed to showcase the basic functionalities of our platform. It includes user authentication, data visualization, and an intuitive UI.",
+      "BarbaBrutal é um aplicativo de agendamento de compromissos para uma barbearia construído com uma estrutura monorepo usando TurboRepo. Ele apresenta login de usuário e a capacidade de reservar horários disponíveis com barbeiros. O projeto inclui 4 aplicativos: frontend (Next.js), backend (NestJS), mobile (Expo) e core (TypeScript), seguindo Domain-Driven Design (DDD).",
     technologies: [
       "React",
       "Next.js",
@@ -26,10 +28,12 @@ export const mockProjects: Project[] = [
       "GraphQL",
     ],
     highlightedTechnologies: ["React", "Next.js", "TypeScript"], // Tecnologias em destaque
+    languages: "pt-BR", // Idioma do projeto
+    imgSrc: "/images/barbearia.jpg", // Caminho da imagem do projeto
   },
   {
     id: 2,
-    name: "Project Beta",
+    name: "Gam3rStore",
     shortDescription: "An advanced project with complex features.",
     longDescription:
       "Project Beta takes things a step further by integrating third-party APIs and providing advanced analytics tools. It's perfect for users who need deep insights.",
@@ -43,10 +47,12 @@ export const mockProjects: Project[] = [
       "Tailwind CSS",
     ],
     highlightedTechnologies: ["React", "Redux", "GraphQL"], // Tecnologias em destaque
+    languages: "en-US", // Idioma do projeto
+    imgSrc: "/images/project-beta.jpg", // Caminho da imagem do projeto
   },
   {
     id: 3,
-    name: "Project Gamma",
+    name: "Instasany",
     shortDescription: "A mobile-first responsive design project.",
     longDescription:
       "Project Gamma focuses on mobile responsiveness and accessibility. It ensures a seamless experience across all devices and includes various accessibility features.",
@@ -60,6 +66,8 @@ export const mockProjects: Project[] = [
       "Firebase",
     ],
     highlightedTechnologies: ["React", "Next.js", "CSS Modules"], // Tecnologias em destaque
+    languages: "en-US", // Idiomas do projeto
+    imgSrc: "/images/project-gamma.jpg", // Caminho da imagem do projeto
   },
   {
     id: 4,
@@ -77,6 +85,8 @@ export const mockProjects: Project[] = [
       "MongoDB",
     ],
     highlightedTechnologies: ["Firebase", "Tailwind CSS", "Socket.IO"], // Tecnologias em destaque
+    languages: "pt-BR", // Idioma do projeto
+    imgSrc: "/images/project-delta.jpg", // Caminho da imagem do projeto
   },
   {
     id: 5,
@@ -94,22 +104,7 @@ export const mockProjects: Project[] = [
       "Tailwind CSS",
     ],
     highlightedTechnologies: ["Next.js", "Stripe", "Sanity.io"], // Tecnologias em destaque
-  },
-  {
-    id: 6,
-    name: "Project Zeta",
-    shortDescription: "A blogging platform with rich media support.",
-    longDescription:
-      "Project Zeta allows users to create and manage blogs with rich media content. It supports image uploads, video embedding, and social sharing features.",
-    technologies: [
-      "React",
-      "Next.js",
-      "Markdown",
-      "AWS S3",
-      "Cloudinary",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
-    highlightedTechnologies: ["Markdown", "AWS S3", "Cloudinary"], // Tecnologias em destaque
+    languages: "en-US", // Idioma do projeto
+    imgSrc: "/images/project-epsilon.jpg", // Caminho da imagem do projeto
   },
 ];

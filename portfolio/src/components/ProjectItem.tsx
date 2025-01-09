@@ -14,11 +14,6 @@ const ProjectItem = ({ projectName, techs }: ProjectItemProps) => {
       {/* BOTTOM BAR */}
       <div className="flex gap-4 bg-black justify-start pl-2 ">
         <span className="text-white font-semibold">{projectName}</span>
-        <div className="text-white/70 flex gap-2 ">
-          {techs.map((t, i) => (
-            <span key={i}>{t}</span>
-          ))}
-        </div>
       </div>
     </div>
   );

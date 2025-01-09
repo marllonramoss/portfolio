@@ -3,7 +3,7 @@ import ProjectList from "./ProjectList";
 
 const ProjectsSection = () => {
   return (
-    <div className="flex flex-col mt-32">
+    <div className="flex flex-col mt-32 bg-red-200">
       {/* HEADER */}
       <div className="h-5  gap-4 flex mb-2">
         <span className="text-black">All</span>
