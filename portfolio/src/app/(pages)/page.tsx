@@ -8,9 +8,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col container ">
-      <ProjectsSection />
-    </div>
+    <div className="flex flex-col container ">{/* <ProjectsSection /> */}</div>
   );
 };
 
