@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Variáveis de cores */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,14 +15,72 @@
   }
 }
 
+/* Estilos globais */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Tailwind container */
 @layer components {
   .container {
     @apply mx-auto px-5 max-w-7xl;
   }
+}
+
+/* Estilos para o Infinite Scrolling Cards */
+.galleryWrapper {
+    background: #111; /* Cor de fundo da galeria */
+    min-height: 100vh; /* Altura mínima da galeria */
+    padding: 0; /* Sem padding */
+    margin: 0; /* Sem margem */
+}
+
+.gallery {
+    position: relative; /* Posição relativa para a galeria */
+    width: 100%; /* Largura total */
+    height: 100vh; /* Altura total da viewport */
+    overflow: hidden; /* Oculta qualquer conteúdo fora da área visível */
+}
+
+.cards {
+    display: flex; /* Alinha os cartões horizontalmente */
+    gap: 10px; /* Espaçamento entre os cartões */
+}
+
+.card {
+    flex-shrink: 0; /* Impede que os cartões encolham */
+    width: 200px; /* Largura fixa dos cartões */
+    height: 300px; /* Altura fixa dos cartões */
+    background-color: #9d7cce; /* Cor de fundo dos cartões */
+    border-radius: 10px; /* Bordas arredondadas dos cartões */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Tamanho da fonte do texto no cartão */
+}
+
+/* Estilos para botões de ação */
+.actions {
+    position:absolute; 
+    bottom :25px; 
+    left :50%; 
+    transform :translateX(-50%); /* Centraliza os botões de ação horizontalmente */
+}
+
+button {
+    display:inline-block; 
+    outline:none; 
+    border:none; 
+    padding :12px ; 
+    background:#414141; 
+    color:#ffffff; 
+    text-transform :uppercase; 
+    font-weight :600; 
+    cursor:pointer; 
+}
+
+button:hover {
+    background:#57a818; /* Cor do botão ao passar o mouse */
 }
