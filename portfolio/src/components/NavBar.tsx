@@ -19,14 +19,20 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full bg-white h-12 flex justify-center items-center transition-all duration-300  ${
-        isScrolled ? "bg-white bg-opacity-70 backdrop-blur-lg shadow-lg" : ""
+      className={`fixed top-0 left-0 w-full bg-zinc-900 h-12 flex justify-center items-center transition-all duration-300  ${
+        isScrolled ? " bg-transparent   backdrop-blur-lg shadow-lg" : ""
       } z-50`}
     >
       <div className="container mx-auto flex justify-between items-center px-4">
-        <Logo />
-        <Link href={"#"}>
-          <span className="uppercase text-black font-semibold">contact</span>
+        <Logo className={`${isScrolled ? "text-zinc-50" : "text-zinc-50"}`} />
+        <Link href={"#"} className="hover-effect">
+          <span
+            className={`uppercase text-zinc-50 ${
+              isScrolled && "text-zinc-50"
+            } font-semibold`}
+          >
+            contact
+          </span>
         </Link>
       </div>
     </div>

@@ -8,14 +8,14 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="selection:bg-black selection:text-white min-h-screen flex flex-col">
+    <div className="selection:bg-black selection:text-white min-h-screen flex flex-col overflow-hidden ">
       <NavBar />
       {/* Container do conteúdo principal */}
-      <div className="flex-1 ">{children}</div>
+      <div className="flex-1 mt-12 ">{children}</div>
       {/* Linha de separação */}
-      <hr className="border-t-[1px] border-gray-500 w-full my-4" />
+      {/* <hr className="border-t-[1px] border-gray-500 w-full my-4" /> */}
       {/* Footer sempre no final */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

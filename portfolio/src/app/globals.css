@@ -4,8 +4,10 @@
 
 /* Variáveis de cores */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #0A0A0A;
+  --foreground: #171717; */
+  @apply bg-zinc-950 cursor-none
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -84,3 +86,19 @@ button {
 button:hover {
     background:#57a818; /* Cor do botão ao passar o mouse */
 }
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white; /* Cor do cursor mais clara */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+

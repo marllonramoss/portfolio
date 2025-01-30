@@ -1,9 +1,17 @@
 import React from "react";
 
-const Logo = () => {
+type LogoProps = {
+  className?: string;
+};
+
+const Logo = ({ className }: LogoProps) => {
   return (
     <div>
-      <span className="text-black uppercase font-semibold tracking-wide">
+      <span
+        className={` uppercase font-semibold tracking-wide ${
+          className ?? "text-black"
+        }`}
+      >
         marllon ramos
       </span>
     </div>

@@ -1,14 +1,23 @@
 "use client";
 
-import Footer from "@/components/Footer";
-// pages/index.js
-import NavBar from "@/components/NavBar";
-import ProjectList from "@/components/ProjectList";
-import ProjectsSection from "@/components/ProjectsSection";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import HeroSection from "@/components/HeroSection";
+import SecondSection from "@/components/SecondSection";
+import useScrollToSection from "@/hook/useScrollToSection";
+
+// Registra o plugin do GSAP uma vez, antes de qualquer renderização
+gsap.registerPlugin(ScrollToPlugin);
 
 const HomePage = () => {
+  useScrollToSection();
+
   return (
-    <div className="flex flex-col container ">{/* <ProjectsSection /> */}</div>
+    <div className="flex flex-col container">
+      <HeroSection className="section active" />{" "}
+      {/* Adicione as classes aqui */}
+      <SecondSection className="section" /> {/* Adicione a classe aqui */}
+    </div>
   );
 };
 
