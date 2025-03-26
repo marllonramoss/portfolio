@@ -7,6 +7,30 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Tecnologia {
+  id        Int       @id @default(autoincrement())
+  nome      String
+  descricao String
+  imagem    String
+  destaque  Boolean   @default(false)
+  projetos  Projeto[]
+
+  @@map("tecnologias")
+}
+
+model Projeto {
+  id          Int          @id @default(autoincrement())
+  nome        String
+  descricao   String
+  imagens     String[]
+  destaque    Boolean      @default(false)
+  repositorio String
+  tecnologias Tecnologia[]
+
+  @@map("projetos")
 }
