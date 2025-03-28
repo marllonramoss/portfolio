@@ -132,7 +132,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\dev\\projects\\portfolio\\backend\\generated\\prisma",
+      "value": "/Volumes/hd/dev/GitHub/portfolio/backend/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -141,12 +141,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\dev\\projects\\portfolio\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "/Volumes/hd/dev/GitHub/portfolio/backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -160,6 +160,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

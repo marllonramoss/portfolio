@@ -1,3 +1,3 @@
-import projeto from "./Projeto";
+import Projeto from "./Projeto";
 
-export type { projeto };
+export type { Projeto };

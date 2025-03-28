@@ -133,7 +133,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\dev\\projects\\portfolio\\backend\\generated\\prisma",
+      "value": "/Volumes/hd/dev/GitHub/portfolio/backend/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -142,12 +142,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\dev\\projects\\portfolio\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "/Volumes/hd/dev/GitHub/portfolio/backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -161,6 +161,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -209,8 +210,8 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+path.join(__dirname, "libquery_engine-darwin.dylib.node");
+path.join(process.cwd(), "generated/prisma/libquery_engine-darwin.dylib.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")

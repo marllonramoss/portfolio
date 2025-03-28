@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -13,7 +12,7 @@ datasource db {
 }
 
 model Tecnologia {
-  id        Int       @id @default(autoincrement())
+  id        String    @id @default(uuid())
   nome      String
   descricao String
   imagem    String
@@ -24,7 +23,7 @@ model Tecnologia {
 }
 
 model Projeto {
-  id          Int          @id @default(autoincrement())
+  id          String       @id @default(uuid())
   nome        String
   descricao   String
   imagens     String[]
