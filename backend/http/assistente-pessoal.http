@@ -1,0 +1,7 @@
+Post https://marllonramos.app.n8n.cloud/webhook-test/assistente-portfolio
+Content-Type: application/json
+
+{
+    "chatId": "123456",
+    "message": "Bom dia. Sabe o nome de 3 projetos do Marllon?"
+}

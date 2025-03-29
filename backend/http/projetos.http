@@ -1,0 +1,6 @@
+### Retorna todos os projetos
+GET http://localhost:3000/projetos
+
+### Retorna um projeto por id
+GET http://localhost:3000/projetos/1
+
