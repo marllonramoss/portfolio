@@ -20,7 +20,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mt-2 `}
     >
       <div
-        className={`max-w-7xl mx-auto px-4 h-16 ${
+        className={`max-w-7xl mx-auto px-4 h-16 rounded-3xl ${
           isScrolled
             ? "bg-zinc-400/20 backdrop-blur-sm shadow-lg"
             : "bg-transparent"

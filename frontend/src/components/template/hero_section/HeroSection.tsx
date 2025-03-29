@@ -79,7 +79,7 @@ const HeroSection = () => {
                   default: "bounce",
                 },
                 random: false,
-                speed: 3,
+                speed: 0.5,
                 straight: false,
               },
               number: {
