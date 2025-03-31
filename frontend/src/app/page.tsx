@@ -1,14 +1,15 @@
 import HeroSection from "@/components/template/hero_section/HeroSection";
 import Second_section from "@/components/template/second_section/Second_section";
-import React from "react";
+import ExperienceSection from "@/components/template/experience_section/ExperienceSection";
+import StacksSection from "@/components/template/stacks_section/StacksSection";
 
-const page = () => {
+export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-black text-white">
       <HeroSection />
       <Second_section />
+      <ExperienceSection />
+      <StacksSection />
     </main>
   );
-};
-
-export default page;
+}

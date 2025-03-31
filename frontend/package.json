@@ -9,11 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@react-three/drei": "^10.0.5",
+    "@react-three/fiber": "^9.1.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@types/locomotive-scroll": "^4.1.4",
+    "@types/three": "^0.175.0",
+    "locomotive-scroll": "^4.1.4",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-tsparticles": "^2.12.2",
     "swiper": "^11.2.6",
+    "three": "^0.175.0",
     "tsparticles": "^3.8.1",
     "tsparticles-slim": "^2.12.0"
   },

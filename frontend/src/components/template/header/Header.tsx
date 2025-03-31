@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,41 +28,44 @@ const Header = () => {
         }`}
       >
         <nav className="flex items-center justify-between  px-4 h-full">
-          <div className="text-white text-xl font-bold tracking-widest">
+          <Link
+            href="/"
+            className="text-white text-xl font-bold tracking-widest"
+          >
             MARLLON
-          </div>
+          </Link>
           <ul className="flex space-x-6">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="text-white hover:text-gray-300 transition-colors"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+              <Link
+                href="/working"
                 className="text-white hover:text-gray-300 transition-colors"
               >
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/working"
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                About me
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/working"
                 className="text-white hover:text-gray-300 transition-colors"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
