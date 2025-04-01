@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/db/prisma.service';
-import { Tecnologia } from '@core';
+import { Tecnologia } from '@marllonramoss/portfolio-core';
 
 @Injectable()
 export class TecnologiaProvider {

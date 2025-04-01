@@ -1,9 +1,24 @@
 {
-  "name": "core",
+  "name": "@marllonramoss/portfolio-core",
   "version": "1.0.0",
-  "main": "index.ts",
-  "keywords": [],
-  "author": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "portfolio",
+    "core",
+    "ddd"
+  ],
+  "author": "Marllon Ramos",
   "license": "ISC",
-  "description": ""
+  "description": "Core module for portfolio application",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
 }

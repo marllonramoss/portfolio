@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ProjetoProvider } from './projeto.provider';
-import { Projeto } from '@core';
+import { Projeto } from '@marllonramoss/portfolio-core';
 
 @Controller('projetos')
 export class ProjetoController {
