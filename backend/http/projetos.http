@@ -4,3 +4,7 @@ GET http://localhost:3000/projetos
 ### Retorna um projeto por id
 GET http://localhost:3000/projetos/1
 
+### Retorna projetos em destaque
+GET http://localhost:3000/projetos/destaques
+
+

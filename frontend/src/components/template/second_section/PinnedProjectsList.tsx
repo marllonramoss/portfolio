@@ -1,83 +1,90 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+
+interface Tecnologia {
+  id: string;
+  nome: string;
+}
+
+interface Project {
+  id: string;
+  nome: string;
+  descricao: string;
+  imagens: string[];
+  repositorio: string;
+  destaque: string;
+  tecnologias: Tecnologia[];
+}
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
   techs: string[];
 }
 
-const ProjectCard = ({
-  title,
-  description,
-  image,
-  techs,
-}: ProjectCardProps) => {
+const ProjectCard = ({ title, description, techs = [] }: ProjectCardProps) => {
   return (
-    <div className="flex flex-col bg-white/5 backdrop-blur-md rounded-lg border border-white/10 overflow-hidden group hover:bg-white/10 transition-all duration-300 h-[400px]">
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-white text-lg font-medium mb-2">{title}</h3>
-        <p className="text-white/60 text-sm mb-3 line-clamp-2 flex-1">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {techs.map((tech, index) => (
-            <span
-              key={index}
-              className="text-white/40 text-xs bg-white/5 px-2 py-1 rounded-full"
-            >
-              {tech}
-            </span>
-          ))}
+    <Link href="/working" className="block">
+      <div className="flex flex-col bg-white/5 backdrop-blur-md rounded-lg border border-white/10 overflow-hidden group hover:bg-white/10 transition-all duration-300 h-[400px]">
+        <div className="relative h-48 overflow-hidden bg-black">
+          <Image
+            src="/images/black.png"
+            alt={title}
+            width={400}
+            height={200}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        <div className="p-4 flex flex-col flex-1">
+          <h3 className="text-white text-lg font-medium mb-2 line-clamp-1">
+            {title}
+          </h3>
+          <p className="text-white/60 text-sm mb-3 line-clamp-3">
+            {description}
+          </p>
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {(techs || []).map((tech, index) => (
+              <span
+                key={index}
+                className="text-white/40 text-xs bg-white/5 px-2 py-1 rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
-const PinnedProjectsList = () => {
-  const projects = [
-    {
-      title: "Portfolio",
-      description:
-        "Meu portfolio pessoal desenvolvido com Next.js e TailwindCSS",
-      image: "/projects/portfolio.png",
-      techs: ["Next.js", "React", "TypeScript", "TailwindCSS"],
-    },
-    {
-      title: "E-commerce",
-      description: "Plataforma de e-commerce com carrinho e pagamentos",
-      image: "/projects/ecommerce.png",
-      techs: ["React", "Node.js", "MongoDB", "Stripe"],
-    },
-    {
-      title: "Task Manager",
-      description: "Aplicativo de gerenciamento de tarefas com drag and drop",
-      image: "/projects/taskmanager.png",
-      techs: ["React", "TypeScript", "Firebase", "TailwindCSS"],
-    },
-    {
-      title: "Chat App",
-      description: "Aplicativo de chat em tempo real com autenticação",
-      image: "/projects/chatapp.png",
-      techs: ["React", "Socket.io", "Express", "MongoDB"],
-    },
-  ];
+const PinnedProjectsList = ({
+  initialProjects = [],
+}: {
+  initialProjects: Project[];
+}) => {
+  if (!initialProjects || initialProjects.length === 0) {
+    return (
+      <div className="w-full flex justify-center items-center min-h-[400px]">
+        <div className="text-white">Nenhum projeto encontrado</div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+        {initialProjects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.nome}
+            description={project.descricao}
+            techs={project.tecnologias.map((tech) => tech.nome)}
+          />
         ))}
       </div>
       <div className="flex justify-center mt-12">

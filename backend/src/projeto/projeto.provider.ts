@@ -19,4 +19,13 @@ export class ProjetoProvider {
 
     return projeto;
   }
+
+  async obterDestaques(): Promise<Projeto[]> {
+    const projetos = await this.repo.projeto.findMany({
+      where: { destaque: true },
+      include: { tecnologias: true },
+      orderBy: { nome: 'asc' },
+    });
+    return projetos as any;
+  }
 }
