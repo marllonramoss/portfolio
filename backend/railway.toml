@@ -1,6 +1,5 @@
 [build]
 builder = "DOCKERFILE"
-root = "backend"
 
 [deploy]
 startCommand = "npm run start:prod"
