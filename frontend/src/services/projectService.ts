@@ -3,12 +3,14 @@ import { API_CONFIG } from "@/config/api";
 export const projectService = {
   async getPinnedProjects() {
     try {
-      const response = await fetch(
-        `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.projects}`,
-        {
-          next: { revalidate: 86400 }, // 24 horas
-        }
-      );
+      // Garantir que não há espaços extras e barras duplicadas
+      const baseUrl = API_CONFIG.baseUrl?.trim().replace(/\/$/, "");
+      const endpoint = API_CONFIG.endpoints.projects.trim().replace(/^\//, "");
+      const url = `${baseUrl}/${endpoint}`;
+
+      const response = await fetch(url, {
+        next: { revalidate: 86400 }, // 24 horas
+      });
 
       if (!response.ok) {
         throw new Error("Erro ao buscar projetos");
