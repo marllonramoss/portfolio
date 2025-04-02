@@ -1,0 +1,14 @@
+[build]
+builder = "nixpacks"
+root = "backend"
+
+[deploy]
+startCommand = "npm run start:prod"
+healthcheckPath = "/tecnologias"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[build.env]
+NODE_ENV = "production"
+NODE_VERSION = "20" 
