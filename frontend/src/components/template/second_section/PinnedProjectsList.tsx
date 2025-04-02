@@ -4,11 +4,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-interface Tecnologia {
-  id: string;
-  nome: string;
-}
-
 interface Project {
   id: string;
   nome: string;
@@ -16,16 +11,14 @@ interface Project {
   imagens: string[];
   repositorio: string;
   destaque: string;
-  tecnologias: Tecnologia[];
 }
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  techs: string[];
 }
 
-const ProjectCard = ({ title, description, techs = [] }: ProjectCardProps) => {
+const ProjectCard = ({ title, description }: ProjectCardProps) => {
   return (
     <Link href="/working" className="block">
       <div className="flex flex-col bg-white/5 backdrop-blur-md rounded-lg border border-white/10 overflow-hidden group hover:bg-white/10 transition-all duration-300 h-[400px]">
@@ -46,16 +39,6 @@ const ProjectCard = ({ title, description, techs = [] }: ProjectCardProps) => {
           <p className="text-white/60 text-sm mb-3 line-clamp-3">
             {description}
           </p>
-          <div className="flex flex-wrap gap-2 mt-auto">
-            {(techs || []).map((tech, index) => (
-              <span
-                key={index}
-                className="text-white/40 text-xs bg-white/5 px-2 py-1 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </Link>
@@ -83,7 +66,6 @@ const PinnedProjectsList = ({
             key={project.id}
             title={project.nome}
             description={project.descricao}
-            techs={project.tecnologias.map((tech) => tech.nome)}
           />
         ))}
       </div>

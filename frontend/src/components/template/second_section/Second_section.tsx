@@ -3,9 +3,12 @@ import { PinnedProjectsList } from "./PinnedProjectsList";
 
 async function getPinnedProjects() {
   try {
-    const response = await fetch("http://localhost:3000/projetos/destaques", {
-      next: { revalidate: 3600 }, // Revalidar a cada 1 hora
-    });
+    const response = await fetch(
+      "https://portfolio-backend-production-fd0d.up.railway.app/projetos",
+      {
+        next: { revalidate: 86400 }, // Revalidar a cada 1 hora
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Erro ao buscar projetos");
