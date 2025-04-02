@@ -3,13 +3,13 @@ FROM node:20-slim
 WORKDIR /app
 
 # Copiar apenas os arquivos necessários para instalar dependências
-COPY backend/package*.json ./
+COPY package*.json ./
 
 # Instalar dependências
 RUN npm install
 
 # Copiar o resto do código
-COPY backend/ .
+COPY . .
 
 # Build da aplicação
 RUN npm run build
