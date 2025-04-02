@@ -1,6 +1,7 @@
 [build]
 builder = "nixpacks"
 root = "backend"
+buildCommand = "npm ci"
 
 [deploy]
 startCommand = "npm run start:prod"
@@ -12,12 +13,6 @@ restartPolicyMaxRetries = 10
 [build.env]
 NODE_ENV = "production"
 NODE_VERSION = "18"
-
-[build.buildCommand]
-command = "npm ci"
-
-[build.startCommand]
-command = "npm run start:prod"
 
 [[services]]
 name = "backend"
