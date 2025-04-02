@@ -1,28 +1,9 @@
 import React from "react";
 import { PinnedProjectsList } from "./PinnedProjectsList";
-
-async function getPinnedProjects() {
-  try {
-    const response = await fetch(
-      "https://portfolio-backend-production-fd0d.up.railway.app/projetos",
-      {
-        next: { revalidate: 86400 }, // Revalidar a cada 1 hora
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Erro ao buscar projetos");
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error("Erro ao buscar projetos:", error);
-    return [];
-  }
-}
+import { projectService } from "@/services/projectService";
 
 const Second_section = async () => {
-  const initialProjects = await getPinnedProjects();
+  const initialProjects = await projectService.getPinnedProjects();
 
   return (
     <div className="h-full max-w-7xl mx-auto px-4 w-full flex flex-col justify-start items-start py-12">
