@@ -13,6 +13,12 @@ restartPolicyMaxRetries = 10
 NODE_ENV = "production"
 NODE_VERSION = "18"
 
+[build.buildCommand]
+command = "npm ci"
+
+[build.startCommand]
+command = "npm run start:prod"
+
 [[services]]
 name = "backend"
 directory = "backend" 
