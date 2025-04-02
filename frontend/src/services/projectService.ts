@@ -9,7 +9,7 @@ export const projectService = {
       const url = `${baseUrl}/${endpoint}`;
 
       const response = await fetch(url, {
-        next: { revalidate: 0 }, // 24 horas
+        next: { revalidate: 86400 }, // 24 horas
       });
 
       if (!response.ok) {
