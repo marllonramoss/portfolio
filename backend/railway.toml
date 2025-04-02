@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+root = "backend"
+
+[deploy]
+startCommand = "npm run start:prod"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[build.env]
+NODE_VERSION = "18" 
