@@ -1,7 +1,6 @@
 [build]
-builder = "nixpacks"
+builder = "DOCKERFILE"
 root = "backend"
-buildCommand = "npm ci"
 
 [deploy]
 startCommand = "npm run start:prod"
