@@ -1,0 +1,18 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd backend && npm install"
+
+[deploy]
+startCommand = "cd backend && npm run start:prod"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[build.env]
+NODE_ENV = "production"
+NODE_VERSION = "18"
+
+[[services]]
+name = "backend"
+directory = "backend" 
