@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
 
 interface Experience {
   id: number;
@@ -38,6 +39,25 @@ const experiences: Experience[] = [
 const ExperienceSection = () => {
   const [selectedExperience, setSelectedExperience] =
     useState<Experience | null>(experiences[0]);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      gsap.killTweensOf(contentRef.current);
+
+      gsap.set(contentRef.current, {
+        opacity: 0,
+        y: 20,
+      });
+
+      gsap.to(contentRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    }
+  }, [selectedExperience]);
 
   return (
     <div className="w-full py-16">
@@ -79,31 +99,33 @@ const ExperienceSection = () => {
 
           {/* Detalhes da Experiência */}
           <div className="lg:col-span-2">
-            {selectedExperience && (
-              <div className="bg-white/5 backdrop-blur-md rounded-lg border border-white/10 p-8 h-full shadow-lg">
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-white text-2xl font-medium">
-                    {selectedExperience.role}
-                  </h3>
-                  <span className="text-white/60 text-sm bg-white/5 px-4 py-2 rounded-full">
-                    {selectedExperience.period}
-                  </span>
-                </div>
-                <div className="text-white/80 text-base mb-8 leading-relaxed">
-                  {selectedExperience.description}
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {selectedExperience.techs.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="text-white/60 text-sm bg-white/5 px-4 py-2 rounded-full hover:bg-white/10 transition-colors duration-300"
-                    >
-                      {tech}
+            <div className="bg-white/5 backdrop-blur-md rounded-lg border border-white/10 p-8 h-full shadow-lg transform-gpu">
+              {selectedExperience && (
+                <div ref={contentRef}>
+                  <div className="flex items-center justify-between mb-8">
+                    <h3 className="text-white text-2xl font-medium">
+                      {selectedExperience.role}
+                    </h3>
+                    <span className="text-white/60 text-sm bg-white/5 px-4 py-2 rounded-full">
+                      {selectedExperience.period}
                     </span>
-                  ))}
+                  </div>
+                  <div className="text-white/80 text-base mb-8 leading-relaxed">
+                    {selectedExperience.description}
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {selectedExperience.techs.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="text-white/60 text-sm bg-white/5 px-4 py-2 rounded-full hover:bg-white/10 transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

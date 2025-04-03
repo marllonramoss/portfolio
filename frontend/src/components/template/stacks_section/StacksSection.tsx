@@ -1,6 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface StackCategory {
   title: string;
@@ -53,16 +57,76 @@ const StacksSection = () => {
     },
   ];
 
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    // Animação do título
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top bottom-=100",
+            end: "bottom top",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        }
+      );
+    }
+
+    // Animação dos cards
+    cardRefs.current.forEach((card) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom-=100",
+              end: "bottom top",
+              toggleActions: "play none none reverse",
+              once: true,
+            },
+          }
+        );
+      }
+    });
+  }, []);
+
   return (
     <div className="w-full py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-white text-3xl font-medium mb-12">
+        <h2 ref={titleRef} className="text-white text-3xl font-medium mb-12">
           Stack Tecnológica
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {stacks.map((stack, index) => (
             <div
               key={index}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
               className="group border border-white/5 hover:border-white/10 transition-colors duration-300"
             >
               <div className="p-6">

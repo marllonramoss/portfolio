@@ -12,7 +12,7 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.0.5",
-    "@react-three/fiber": "^9.1.0",
+    "@react-three/fiber": "^9.1.1",
     "@tabler/icons-react": "^3.31.0",
     "@types/locomotive-scroll": "^4.1.4",
     "@types/three": "^0.175.0",
