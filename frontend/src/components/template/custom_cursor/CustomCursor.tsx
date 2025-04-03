@@ -1,13 +1,29 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Verifica se é um dispositivo móvel
+    const checkIfMobile = () => {
+      const isMobileDevice = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    // Verifica na montagem do componente
+    checkIfMobile();
+
+    // Adiciona listener para mudanças de tamanho da tela
+    window.addEventListener("resize", checkIfMobile);
+
+    // Se for mobile, não inicializa o cursor personalizado
+    if (isMobile) return;
+
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
     if (!cursor || !cursorDot) return;
@@ -71,13 +87,17 @@ const CustomCursor = () => {
       window.removeEventListener("mousemove", updatePosition);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("resize", checkIfMobile);
 
       clickableElements.forEach((element) => {
         element.removeEventListener("mouseenter", handleLinkHoverEnter);
         element.removeEventListener("mouseleave", handleLinkHoverLeave);
       });
     };
-  }, []);
+  }, [isMobile]);
+
+  // Se for mobile, não renderiza o cursor personalizado
+  if (isMobile) return null;
 
   return (
     <div

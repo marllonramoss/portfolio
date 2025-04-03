@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="absolute left-0 top-0 bottom-0 w-96 bg-gradient-to-r from-black via-black/80 to-transparent z-10"></div>
       <div className="absolute right-0 top-0 bottom-0 w-96 bg-gradient-to-l from-black via-black/80 to-transparent z-10"></div>
       <div className="absolute inset-0 flex items-center justify-center z-20">
-        <div className="max-w-7xl mx-auto px-4 w-full h-full flex flex-col justify-start mt-96 items-center">
+        <div className="max-w-7xl mx-auto px-4 w-full h-full flex flex-col justify-start mt-5 md:mt-96  items-center ">
           <span
             className={`text-white text-9xl ${instrumentSerif.className} w-full flex`}
           >

@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
 :root {
@@ -33,8 +32,11 @@ body {
   }
 }
 
-* {
-  cursor: none !important;
+/* Aplica cursor: none apenas em dispositivos não-móveis */
+@media (min-width: 769px) {
+  * {
+    cursor: none !important;
+  }
 }
 
 
