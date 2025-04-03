@@ -3,5 +3,6 @@ export const API_CONFIG = {
   endpoints: {
     projects: "/projetos",
     pinnedProjects: "/projetos/destaques",
+    technologies: "/tecnologias",
   },
 };
