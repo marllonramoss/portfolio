@@ -21,9 +21,11 @@ interface Project {
 const ProjectCard = ({
   title,
   description,
+  id,
 }: {
   title: string;
   description: string;
+  id: string;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +58,7 @@ const ProjectCard = ({
 
   return (
     <div ref={cardRef}>
-      <Link href="/working" className="block">
+      <Link href={`/projetos/${id}`} className="block">
         <div className="flex flex-col bg-white/5 backdrop-blur-md rounded-lg border border-white/10 overflow-hidden group hover:bg-white/10 transition-all duration-300 h-[400px]">
           <div className="relative h-48 overflow-hidden bg-black">
             <Image
@@ -151,6 +153,7 @@ const PinnedProjectsAnimation = ({ projects }: { projects: Project[] }) => {
             key={project.id}
             title={project.nome}
             description={project.descricao}
+            id={project.id}
           />
         ))}
       </div>
