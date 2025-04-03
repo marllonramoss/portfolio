@@ -243,7 +243,9 @@ const Header = () => {
           </button>
 
           <Link
-            ref={(el) => (menuItemsRef.current[0] = el)}
+            ref={(el) => {
+              if (el) menuItemsRef.current[0] = el;
+            }}
             href="/"
             className="text-white text-2xl font-medium hover:text-gray-300 transition-colors px-6 py-3 w-full max-w-xs text-center"
             onClick={() => setIsMenuOpen(false)}
@@ -251,7 +253,9 @@ const Header = () => {
             Home
           </Link>
           <Link
-            ref={(el) => (menuItemsRef.current[1] = el)}
+            ref={(el) => {
+              if (el) menuItemsRef.current[1] = el;
+            }}
             href="/working"
             className="text-white text-2xl font-medium hover:text-gray-300 transition-colors px-6 py-3 w-full max-w-xs text-center"
             onClick={() => setIsMenuOpen(false)}
@@ -259,7 +263,9 @@ const Header = () => {
             Projects
           </Link>
           <Link
-            ref={(el) => (menuItemsRef.current[2] = el)}
+            ref={(el) => {
+              if (el) menuItemsRef.current[2] = el;
+            }}
             href="/working"
             className="text-white text-2xl font-medium hover:text-gray-300 transition-colors px-6 py-3 w-full max-w-xs text-center"
             onClick={() => setIsMenuOpen(false)}
@@ -267,7 +273,9 @@ const Header = () => {
             About me
           </Link>
           <Link
-            ref={(el) => (menuItemsRef.current[3] = el)}
+            ref={(el) => {
+              if (el) menuItemsRef.current[3] = el;
+            }}
             href="/working"
             className="text-white text-2xl font-medium hover:text-gray-300 transition-colors px-6 py-3 w-full max-w-xs text-center"
             onClick={() => setIsMenuOpen(false)}
